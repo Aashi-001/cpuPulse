@@ -9,3 +9,19 @@
 ## update 1
 - version 2 built -> logs cpu and memory data of each sample in a csv file.
 - plots cpu and memory usage vs samples and saves it as a png file.
+
+## usage
+```
+# Clone the repository
+git clone https://github.com/Aashi-001/cpupulse
+cd cpupulse
+
+# Build the binary
+make build
+
+#usage
+./cpupulse [--log filename.csv] [--plot] <command> [args...]
+```
+## examples 
+- ``` ./cpupulse sleep 2```
+- ``` ./cpupulse --log stats.csv curl https://example.com```
