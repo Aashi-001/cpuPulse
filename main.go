@@ -71,12 +71,27 @@ package main
 import (
 	"flag"
 	"fmt"
+	// "net/http"
 	"os"
 	"os/exec"
 	"os/signal"
 	"syscall"
 	"time"
+
+	// "github.com/prometheus/client_golang/prometheus"
+	// "github.com/prometheus/client_golang/prometheus/promhttp"
 )
+
+// var (
+//     cpuGauge = prometheus.NewGauge(prometheus.GaugeOpts{
+//         Name: "cpupulse_cpu_percent",
+//         Help: "CPU usage percent of monitored process",
+//     })
+//     memGauge = prometheus.NewGauge(prometheus.GaugeOpts{
+//         Name: "cpupulse_memory_mb",
+//         Help: "Memory RSS in MB of monitored process",
+//     })
+// )
 
 var (
 	startTime    time.Time
@@ -91,6 +106,8 @@ func init() {
 	flag.StringVar(&logFileName, "log", "", "Log CPU and memory usage to a file (CSV format)")
 	flag.BoolVar(&enablePlot, "plot", false, "Generate a CPU usage vs time plot")
 	//flag.Parse()
+	// prometheus.MustRegister(cpuGauge)
+    // prometheus.MustRegister(memGauge)
 }
 
 func main() {
@@ -127,6 +144,13 @@ func main() {
 	go func() {
 		MonitorProcess(pid, done)
 	}()
+
+	// go func() {
+	// 	http.Handle("/metrics", promhttp.Handler())
+	// 	fmt.Println("Prometheus metrics at :2112/metrics")
+	// 	http.ListenAndServe(":2112", nil)
+	// }()
+
 
 	select {
 	case <-interruptChan:

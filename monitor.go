@@ -99,6 +99,9 @@ func MonitorProcess(pid int, done chan struct{}) {
 		}
 
 		time.Sleep(10 * time.Millisecond)
+
+		// cpuGauge.Set(cpuPercent)
+		// memGauge.Set(currMemMB)
 	}
 	close(done)
 }

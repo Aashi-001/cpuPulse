@@ -1,0 +1,8 @@
+*.yml
+Makefile
+/data
+.idea
+cpupulse.exe
+cpupulse-mac-arm
+cpupulse-mac
+cpupulse-linux
