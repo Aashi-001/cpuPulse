@@ -25,3 +25,13 @@ make build
 ## examples 
 - ``` ./cpupulse sleep 2```
 - ``` ./cpupulse --log stats.csv curl https://example.com```
+
+## update 2
+- added cross-platform binaries.
+- no need to build from source.
+- download binaries for Linux, macOS (Intel & ARM), and Windows from the Releases ([text](https://github.com/Aashi-001/cpuPulse/releases/tag/v1.0)) page.
+- after download make sure to give execution privilages to the binary (use `chmod +x 'binary-name'`)
+- run `./'binary-name' command` (similar to examples stated).
+
+
+
