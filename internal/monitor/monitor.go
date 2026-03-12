@@ -24,7 +24,7 @@ func NewMonitor(pid int) *SystemStats {
 }
 
 func (s *SystemStats) Start(done chan struct{}) {
-	defer close(done) // Ensure done is closed when this function exits
+	defer close(done)
 
 	if s.PID <= 0 {
 		fmt.Println("Invalid PID provided to monitor.")
@@ -43,14 +43,12 @@ func (s *SystemStats) Start(done chan struct{}) {
 			break
 		}
 
-		// Handle CPU error to prevent crashes if process dies mid-loop
 		cpuPercent, err := p.CPUPercent()
 		if err != nil {
 			break 
 		}
 		s.CPUSamples = append(s.CPUSamples, cpuPercent)
 
-		// Handle Memory error to prevent nil pointer dereference
 		memInfo, err := p.MemoryInfo()
 		if err != nil {
 			break
@@ -66,7 +64,6 @@ func (s *SystemStats) Start(done chan struct{}) {
 	}
 }
 
-// Print outputs the summary report to the terminal
 func (s *SystemStats) Print(duration time.Duration) {
 	if len(s.CPUSamples) == 0 {
 		fmt.Println("No samples recorded.")
