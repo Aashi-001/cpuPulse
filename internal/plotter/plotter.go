@@ -9,7 +9,6 @@ import (
 	"gonum.org/v1/plot/vg"
 )
 
-// GeneratePNG creates a graph of CPU and Memory usage over time.
 func GeneratePNG(outputFileName string, cpuSamples []float64, memSamples []float64) error {
 	if len(cpuSamples) == 0 || len(memSamples) == 0 {
 		return fmt.Errorf("insufficient data to plot")

@@ -6,10 +6,9 @@ import (
 	"os"
 )
 
-// WriteCSV takes the sample data and writes it to the specified file path.
 func WriteCSV(fileName string, cpuSamples []float64, memSamples []float64) error {
 	if fileName == "" || len(cpuSamples) == 0 {
-		return nil // Nothing to log
+		return nil 
 	}
 
 	file, err := os.Create(fileName)
