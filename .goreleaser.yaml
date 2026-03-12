@@ -16,7 +16,6 @@ builds:
 
 archives:
   - format: tar.gz
-    # This formats the zip file names nicely (e.g., cpupulse_Darwin_arm64.tar.gz)
     name_template: >-
       {{ .ProjectName }}_
       {{- title .Os }}_
