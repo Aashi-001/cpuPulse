@@ -1,7 +1,8 @@
 *.yml
 Makefile
 /data
-.idea
+.idea/
+rel/
 cpupulse.exe
 cpupulse-mac-arm
 cpupulse-mac
